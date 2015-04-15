@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Hello world!</title>
+</head>
+<body>
+<canvas id="canvasX" width="500" height="300">You browser does not support HTML Canvas.</canvas>
+</body>
+<script type="text/javascript">
+	var theCanvas = document.getElementById('canvasX');
+	function canvasSupport(){
+		return Modernizer.canvas;
+	}
+	function canvasApp(){
+		if(!canvasSupport){
+			return;
+		}
+		var context = theCanvas.getContext("2d");
+		context.fillStyle = "#000000";
+		context.font = "50px_sans";
+		context.textBaseline = "top";
+		context.fillText("Hello world!",195,88);
+	}
+	canvasApp();
+</script>
+<script src="modernizr.js"></script>
+</html>
