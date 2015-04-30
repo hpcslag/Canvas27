@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<comment>This is innerLayer not Canvas Layer,see there can help you: http://stackoverflow.com/questions/3008635/html5-canvas-element-multiple-layers </comment>
+	<title>Hello world!</title>
+	<script src="modernizr.js"></script>
+	<script type="text/javascript">
+	window.addEventListener("load",eventWindowLoaded,false);
+	function eventWindowLoaded(){
+		var theCanvas = document.getElementById("canvasX");
+		var c = theCanvas.getContext("2d");
+		//You need create Stat, so path can record.
+		
+		c.fillStyle = "red";
+		c.fillRect(1,60,50,50);
+		//c.globalCompositeOperation = "source-over";
+
+		c.fillStyle = "black";
+		c.globalAlpha = .5;
+		c.fillRect(10,10,200,200);
+		
+		c.fillStyle = "red";
+		c.fillRect(1,1,50,50);
+		c.globalCompositeOperation = "source-over";
+		
+		c.fillRect(60,1,50,50);
+		c.globalCompositeOperation = "destination-atop";
+
+		c.globalAlpha = .5;
+
+		c.globalCompositeOperation = "source-atop";
+		c.fillRect(60,60,50,50);
+	}
+</script>
+</head>
+<body>
+<canvas id="canvasX" width="500" height="300">You browser does not support HTML Canvas.</canvas>
+</body>
+
+</html>
