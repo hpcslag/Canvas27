@@ -9,13 +9,11 @@
 	function eventWindowLoaded(){
 		var theCanvas = document.getElementById("canvasX");
 		var c = theCanvas.getContext("2d");
-		c.fillStyle = "#ffffaa";
-		c.fillRect(0,0,500,300);
-		c.moveTo(10,10);
-		c.lineTo(150,50);
-		c.lineTo(10,90);
-		c.lineTo(10,50);
-		c.stroke();
+		c.beginPath();
+	    	c.moveTo(75,50);
+	    	c.lineTo(100,75);
+	    	c.lineTo(100,25);
+	    	c.fill();
 		console.log(theCanvas.toDataURL())
 	}
 </script>
